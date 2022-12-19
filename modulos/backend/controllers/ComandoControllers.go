@@ -50,7 +50,7 @@ func getNameUsuario(arr []Models.PROCESOPADRE) []Models.PROCESOPADRE {
 
 func RequestPrincipal() http.HandlerFunc {
 	return func(rw http.ResponseWriter, r *http.Request) {
-		salida, _, verificar := CMD("cat /proc/cpu_grupo5")
+		salida, _, verificar := CMD("cat /proc/cpu_grupo7")
 
 		if verificar != nil {
 			log.Printf("error: %v\n", verificar)
@@ -73,7 +73,7 @@ func RequestPrincipal() http.HandlerFunc {
 			logcpu.ENDPOINT = "/CPU"
 			logcpu.DATA = dataJson
 			logcpu.FECHA = fechad
-			/*url := "https://us-central1-macro-resolver-341523.cloudfunctions.net/Guardar/GuardarLog"
+			url := "https://us-central1-macro-resolver-341523.cloudfunctions.net/Guardar/GuardarLog"
 			mapB, _ := json.Marshal(logcpu)
 			peticion, err := http.NewRequest("POST", url, bytes.NewBuffer(mapB))
 			if err != nil {
@@ -86,7 +86,7 @@ func RequestPrincipal() http.HandlerFunc {
 			if err != nil {
 				// Maneja el error de acuerdo a tu situación
 				log.Fatalf("Error haciendo petición: %v", err)
-			}*/
+			}
 			json.NewEncoder(rw).Encode(dataJson)
 		}
 	}
@@ -150,7 +150,7 @@ func RequestCPU() http.HandlerFunc {
 }
 func RequestMemory() http.HandlerFunc {
 	return func(rw http.ResponseWriter, r *http.Request) {
-		salida, _, verificar := CMD("cat /proc/ram_grupo5")
+		salida, _, verificar := CMD("cat /proc/ram_grupo7")
 
 		if verificar != nil {
 			log.Printf("error: %v\n", verificar)
@@ -198,7 +198,7 @@ func RequestMemory() http.HandlerFunc {
 			logmemoria.ENDPOINT = "/Memoria"
 			logmemoria.DATA = dataJson
 			logmemoria.FECHA = fechad
-			/*url := "https://us-central1-macro-resolver-341523.cloudfunctions.net/Guardar/GuardarLog"
+			url := "https://us-central1-macro-resolver-341523.cloudfunctions.net/Guardar/GuardarLog"
 			mapB, _ := json.Marshal(logmemoria)
 			peticion, err := http.NewRequest("POST", url, bytes.NewBuffer(mapB))
 			if err != nil {
@@ -211,7 +211,7 @@ func RequestMemory() http.HandlerFunc {
 			if err != nil {
 				// Maneja el error de acuerdo a tu situación
 				log.Fatalf("Error haciendo petición: %v", err)
-			}*/
+			}
 			json.NewEncoder(rw).Encode(dataJson)
 		}
 	}
