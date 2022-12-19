@@ -2,11 +2,12 @@ package main
 
 import (
 	"Backend/routes"
-	"github.com/gorilla/mux"
-	"github.com/rs/cors"
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 )
 
 func main() {

@@ -8,7 +8,7 @@
 #include <linux/mm.h> //total ram
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Grupo 7");
+MODULE_AUTHOR("Grupo 5");
 MODULE_DESCRIPTION("Cpu");
 
 static void iterate_tasks(struct seq_file *archivo);
@@ -124,15 +124,15 @@ static struct file_operations operations =
 
 static int iniciar_init(void)
 {
-    proc_create("cpu_grupo7", 0, NULL, &operations);
-    printk(KERN_INFO "Módulo lista de procesos del Grupo7 Cargado\n");
+    proc_create("cpu_grupo5", 0, NULL, &operations);
+    printk(KERN_INFO "Módulo lista de procesos del Grupo5 Cargado\n");
     return 0;    // 0 = ERROR DE CARGA
 }
 
 static void finalizar_end(void)
 {
-    remove_proc_entry("cpu_grupo7", NULL);
-    printk(KERN_INFO "Módulo lista de procesos del Grupo7 Desmontado\n");
+    remove_proc_entry("cpu_grupo5", NULL);
+    printk(KERN_INFO "Módulo lista de procesos del Grupo5 Desmontado\n");
 }
 
 module_init(iniciar_init);
