@@ -1,0 +1,12 @@
+obj-m += cpu_grupo5.o
+
+all:
+	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+
+clean:
+	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+run:
+	sudo insmod cpu_grupo5.ko
+
+remove: 
+	sudo rmmod cpu_grupo5.ko
